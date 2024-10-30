@@ -11,8 +11,17 @@ st.write("Step 3: connect to Render.com and make sure your application will be r
 st.write("Step 4: Finish the coding job")
 
 
-# Load the dataset
-data = pd.read_csv('vehicles_us.csv')
+# Specify the path to the CSV file
+file_path = 'vehicles_us.csv'  # Ensure this file is in your current working directory
 
-# Display the first few rows of the dataset
-print(data.head())
+# Read the CSV file into a DataFrame
+try:
+    df = pd.read_csv(file_path)
+    print("Dataset loaded successfully!")
+    
+    # Display the first few rows of the DataFrame
+    print(df.head())
+except FileNotFoundError:
+    print(f"File not found: {file_path}")
+except Exception as e:
+    print(f"An error occurred: {e}")
