@@ -4,10 +4,11 @@ import plotly.express as px
 import altair as alt 
 
 st.write("""
- # Car Sales Advertisements""")
+ # Car Sales Advertisements
+ 
+Shown is a break down of the Car Sales data including the ***Vehicle Types*** by ***Manufacturer***, as well as the ***Model_year***, ***manufacturer***, and ***volume of advertisements****""")
 
-st.write("Vehicle Types by Manufacturer")
-st,write("Model_year, manufacturer, and volume of advertisements")
+
 
 
 st.button("Click")
