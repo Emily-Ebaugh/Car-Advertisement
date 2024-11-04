@@ -3,14 +3,13 @@ import pandas as pd
 import plotly.express as px
 import altair as alt 
 
-st.write("Hello world")
+st.write("#Car Sales Advertisements")
 st.button("Click")
 
 
 # Load the CSV file
 df = pd.read_csv('vehicles_us.csv')
 
-st.line_chart(model_year)
 
 #Check Data Types
 st.write("Data Types:", df.dtypes)
