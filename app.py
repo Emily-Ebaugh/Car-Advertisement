@@ -3,7 +3,13 @@ import pandas as pd
 import plotly.express as px
 import altair as alt 
 
-st.write("#Car Sales Advertisements")
+st.write("""
+ # Car Sales Advertisements)
+
+st.write("Vehicle Types by Manufacturer")
+st,write("Model_year, manufacturer, and volume of advertisements")
+
+
 st.button("Click")
 
 
