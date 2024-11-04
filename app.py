@@ -4,7 +4,7 @@ import plotly.express as px
 import altair as alt 
 
 st.write("""
- # Car Sales Advertisements)
+ # Car Sales Advertisements""")
 
 st.write("Vehicle Types by Manufacturer")
 st,write("Model_year, manufacturer, and volume of advertisements")
