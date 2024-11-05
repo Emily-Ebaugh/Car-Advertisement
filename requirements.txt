@@ -3,3 +3,8 @@ scipy
 streamlit
 altair
 plotly
+
+at least one st.header with text
+at least one Plotly Express histogram using st.write or st.plotly_chart
+at least one Plotly Express scatter plot using st.write or st.plotly_chart
+at least one checkbox using st.checkbox that changes the behavior of any of the above components
