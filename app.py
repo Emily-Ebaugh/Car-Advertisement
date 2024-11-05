@@ -27,11 +27,7 @@ st.download_button(
 )
 
 
-st.button("Click")
 
-
-
-#Make Scatter Plot
 # Create a scatter plot
 fig = px.scatter(
     df,
@@ -45,5 +41,5 @@ fig = px.scatter(
 # Update layout
 fig.update_layout(title_text='Price vs Odometer Scatter Plot')
 
-# Show the plot
-fig.show()
+# Show the plot in Streamlit
+st.plotly_chart(fig)
