@@ -43,3 +43,31 @@ fig.update_layout(title_text='Price vs Odometer Scatter Plot')
 
 # Show the plot in Streamlit
 st.plotly_chart(fig)
+
+
+
+# Checkbox options for selecting columns
+show_price = st.checkbox('Show Price Histogram', value=True)
+show_odometer = st.checkbox('Show Odometer Histogram', value=True)
+show_model_year = st.checkbox('Show Model Year Histogram', value=True)
+
+# Create a histogram based on selected checkboxes
+fig, ax = plt.subplots()
+
+if show_price:
+    ax.hist(df['price'], bins=30, alpha=0.5, label='Price', color='blue')
+
+if show_odometer:
+    ax.hist(df['odometer'], bins=30, alpha=0.5, label='Odometer', color='orange')
+
+if show_model_year:
+    ax.hist(df['model_year'], bins=30, alpha=0.5, label='Model Year', color='green')
+
+# Adding labels and title
+ax.set_title('Histogram of Selected Columns')
+ax.set_xlabel('Value')
+ax.set_ylabel('Frequency')
+ax.legend()
+
+# Show the plot in Streamlit
+st.pyplot(fig)
