@@ -40,6 +40,15 @@ fig.update_layout(title_text='Price vs Odometer Scatter Plot')
 fig.show()
 
 
+st.df.describe()
+
+# Load the CSV file
+df = pd.read_csv('vehicles_us.csv')
+
+
+#Check Data Types
+st.write("Data Types:", df.dtypes)
+
 #Scatter plot example:
 fig = px.scatter(...)
 fig.update_layout(title_text='..')
