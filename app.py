@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import altair as alt 
+import matplotlib.pyplot as plt 
 
 st.write("""
  # Car Sales Advertisements
@@ -46,28 +47,30 @@ st.plotly_chart(fig)
 
 
 
+# Title of the app
+st.title("Vehicle Data Histogram")
+
+# Load the DataFrame from the CSV file
+df = pd.read_csv('vehicles_us.csv')  # Ensure the correct path to your CSV file
+
+# Display the DataFrame
+st.write("Here is the DataFrame:")
+st.dataframe(df)
+
 # Checkbox options for selecting columns
 show_price = st.checkbox('Show Price Histogram', value=True)
 show_odometer = st.checkbox('Show Odometer Histogram', value=True)
 show_model_year = st.checkbox('Show Model Year Histogram', value=True)
 
-# Create a histogram based on selected checkboxes
-fig, ax = plt.subplots()
-
+# Create histograms based on selected checkboxes
 if show_price:
-    ax.hist(df['price'], bins=30, alpha=0.5, label='Price', color='blue')
+    fig_price = px.histogram(df, x='price', nbins=30, title='Price Histogram', color_discrete_sequence=['blue'])
+    st.plotly_chart(fig_price, use_container_width=True)
 
 if show_odometer:
-    ax.hist(df['odometer'], bins=30, alpha=0.5, label='Odometer', color='orange')
+    fig_odometer = px.histogram(df, x='odometer', nbins=30, title='Odometer Histogram', color_discrete_sequence=['orange'])
+    st.plotly_chart(fig_odometer, use_container_width=True)
 
 if show_model_year:
-    ax.hist(df['model_year'], bins=30, alpha=0.5, label='Model Year', color='green')
-
-# Adding labels and title
-ax.set_title('Histogram of Selected Columns')
-ax.set_xlabel('Value')
-ax.set_ylabel('Frequency')
-ax.legend()
-
-# Show the plot in Streamlit
-st.pyplot(fig)
+    fig_model_year = px.histogram(df, x='model_year', nbins=30, title='Model Year Histogram', color_discrete_sequence=['green'])
+    st.plotly_chart(fig_model_year, use_container_width=True)
