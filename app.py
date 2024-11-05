@@ -13,14 +13,6 @@ Shown is a break down of the Car Sales data including the ***Vehicle Types*** by
 
 st.button("Click")
 
-st.df.describe()
-
-# Load the CSV file
-df = pd.read_csv('vehicles_us.csv')
-
-
-#Check Data Types
-st.write("Data Types:", df.dtypes)
 
 #Make Scatter Plot
 # Create a scatter plot
