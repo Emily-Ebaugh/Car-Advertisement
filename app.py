@@ -8,11 +8,23 @@ st.write("""
  
 Shown is a break down of the Car Sales data including the ***Vehicle Types*** by ***Manufacturer***, as well as the ***Model_year***, ***manufacturer***, and ***volume of advertisements****""")
 
+
+# Step 1: Load the DataFrame from the CSV file
+# Make sure to provide the correct path to the CSV file
+df = pd.read_csv('vehicles_us.csv')
+
+# Display the DataFrame
+st.write("Here is the DataFrame:")
 st.dataframe(df)
 
-# Display descriptive statistics
-st.write("Descriptive Statistics:")
-st.dataframe(df.describe())
+# Step 2: Create a download button
+csv = df.to_csv(index=False)  # Convert DataFrame to CSV format
+st.download_button(
+    label="Download vehicles_us.csv",
+    data=csv,
+    file_name='vehicles_us.csv',
+    mime='text/csv'
+)
 
 
 st.button("Click")
