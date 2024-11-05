@@ -8,10 +8,15 @@ st.write("""
  
 Shown is a break down of the Car Sales data including the ***Vehicle Types*** by ***Manufacturer***, as well as the ***Model_year***, ***manufacturer***, and ***volume of advertisements****""")
 
+st.dataframe(df)
 
+# Display descriptive statistics
+st.write("Descriptive Statistics:")
+st.dataframe(df.describe())
 
 
 st.button("Click")
+
 
 
 #Make Scatter Plot
@@ -30,18 +35,3 @@ fig.update_layout(title_text='Price vs Odometer Scatter Plot')
 
 # Show the plot
 fig.show()
-
-
-st.df.describe()
-
-# Load the CSV file
-df = pd.read_csv('vehicles_us.csv')
-
-
-#Check Data Types
-st.write("Data Types:", df.dtypes)
-
-#Scatter plot example:
-fig = px.scatter(...)
-fig.update_layout(title_text='..')
-st.plotly_chart(fig)
