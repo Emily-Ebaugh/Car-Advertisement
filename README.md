@@ -3,3 +3,7 @@ This is a TripleTen Sprint 4 project to develop and deploy a web application reg
 
 # Description
 
+The dataframe has been put in to three graphs. The first is a scatterplot showing the odometer versus price. The second is a histogram that shows the odometer, price and model year. The third is a scatterplot showing the breakdown of manufacture, model, model year, and price of the vehicles. 
+
+# Render URL
+https://dashboard.render.com/web/srv-csgt3gjqf0us739q819g/deploys/dep-cslugvhu0jms73b98ah0
