@@ -8,13 +8,13 @@ st.write("""
  
 Shown is a break down of the Car Sales Advertising data in the US. It begins with a display of the data as well as a downloadable link. The data has been mined and cleaned to make it more functionable and easier to process. """)
 
-st.header("Vehicles_us.csv Dataframe:")
+
 # Step 1: Load the DataFrame from the CSV file
 # Make sure to provide the correct path to the CSV file
 df = pd.read_csv('vehicles_us.csv')
 
 # Display the DataFrame
-st.write("Here is the DataFrame:")
+st.header("Vehicles_us.csv Dataframe:")
 st.dataframe(df)
 
 # Step 2: Create a download button
@@ -32,6 +32,7 @@ st.download_button(
 
 
 # Create a scatter plot
+st.header("Vehicle ***Odometer*** vs. ***Price***")
 fig = px.scatter(
     df,
     x='odometer',  # X-axis
@@ -50,7 +51,7 @@ st.plotly_chart(fig)
 
 
 # Title of the app
-st.header("Vehicle Data Histogram")
+st.header("Vehicle ***Price***, ***Odometer***, and ***Model*** year Break Down")
 
 
 # Checkbox options for selecting columns
@@ -78,10 +79,8 @@ if show_model_year:
 
    
 # Title of the app
-st.title("Vehicle Types by Manufacturer")
+st.header("Vehicle Types by Manufacturer")
 
-# Check the columns in the DataFrame
-st.write("DataFrame Columns:", df.columns)
 
 # Dropdown for selecting vehicle types (using 'type' instead of 'vehicle_type')
 vehicle_types = df['type'].unique()  # Assuming 'type' is the correct column
@@ -114,42 +113,3 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-
-# Title of the app
-st.title("Vehicle Price Analysis")
-st.markdown("Explore the relationship between vehicle prices and their model years based on vehicle types.")
-
-# Sidebar for vehicle type selection
-st.sidebar.header("Filter Options")
-vehicle_types = df['type'].unique()  # Get unique vehicle types
-selected_type = st.sidebar.selectbox('Select Vehicle Type', vehicle_types)
-
-# Filter the DataFrame based on the selected vehicle type
-filtered_df = df[df['type'] == selected_type]
-
-# Create a scatter plot using Plotly Express
-fig = px.scatter(
-    filtered_df,
-    x='model_year',
-    y='price',
-    color='model',  # Different colors for different manufacturers/models
-    hover_name='model',  # Hover text
-    title=f'Price of {selected_type} by Manufacturer',
-    labels={'model_year': 'Model Year', 'price': 'Price'},
-    color_continuous_scale=px.colors.sequential.Viridis  # Optional: change color scale
-)
-
-# Update layout for better visuals
-fig.update_layout(
-    xaxis_title='Model Year',
-    yaxis_title='Price',
-    legend_title='Model',
-    template='plotly_white'  # Optional: use a clean template
-)
-
-# Display the figure in Streamlit
-st.plotly_chart(fig, use_container_width=True)
-
-# Optional: Display a summary of the filtered data
-st.markdown("### Summary of Selected Vehicles")
-st.write(filtered_df[['model', 'model_year', 'price']].describe())
