@@ -79,7 +79,7 @@ if show_model_year:
 
    
 # Title of the app
-st.header("Vehicle Types by Manufacturer")
+st.header("Vehicle Types by ***Manufacturer***, ***Price***, and ***Model Year***")
 
 
 # Dropdown for selecting vehicle types (using 'type' instead of 'vehicle_type')
