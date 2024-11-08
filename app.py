@@ -13,10 +13,6 @@ Shown is a break down of the Car Sales Advertising data in the US. It begins wit
 # Make sure to provide the correct path to the CSV file
 df = pd.read_csv('vehicles_us.csv')
 
-# Check and clean the 'price' column
-df['price'] = pd.to_numeric(df['price'], errors='coerce')  # Convert to numeric
-df['price'].fillna(0, inplace=True)  # Replace NaN with 0 (or drop NaNs)
-
 # Display the DataFrame
 st.header("Vehicles_us.csv Dataframe:")
 st.dataframe(df)
