@@ -11,10 +11,10 @@ Shown is a break down of the Car Sales Advertising data in the US. It begins wit
 # Step 1: Load the DataFrame from the CSV file
 # Make sure to provide the correct path to the CSV file
 df = pd.read_csv('vehicles_us.csv')
-
+df_show= df.astype(str)
 # Display the DataFrame
 st.header("Vehicles_us.csv Dataframe:")
-st.dataframe(df)
+st.dataframe(df_show)
 
 # Step 2: Create a download button
 csv = df.to_csv(index=False)  # Convert DataFrame to CSV format
