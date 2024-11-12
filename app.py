@@ -14,7 +14,9 @@ df = pd.read_csv('vehicles_us.csv')
 df_show= df.astype(str)
 # Display the DataFrame
 st.header("Vehicles_us.csv Dataframe:")
+
 st.dataframe(df_show)
+
 
 # Step 2: Create a download button
 csv = df.to_csv(index=False)  # Convert DataFrame to CSV format
@@ -24,8 +26,6 @@ st.download_button(
     file_name='vehicles_us.csv',
     mime='text/csv'
 )
-
-
 
 
 
